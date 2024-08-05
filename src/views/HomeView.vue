@@ -32,7 +32,7 @@ export default {
     <v-container fluid class="top-0 position-absolute left-0" style="width: 95%">
       <v-row
         justify="center"
-        style="margin-top: 80px !important; padding-bottom: 40px; border-bottom: 1px solid gray"
+        style="margin-top: 20px !important; padding-bottom: 40px; border-bottom: 1px solid gray"
       >
         <v-btn
           v-for="n in btnNames"

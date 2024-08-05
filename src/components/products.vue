@@ -63,31 +63,33 @@ export default {
           elevation="0"
           style="min-height: 250px"
         >
-          <div class="text-end"><v-icon color="#03714d">mdi-heart-outline</v-icon></div>
-          <div class="text-center">
-            <img :src="item.img" alt="" width="150" height="150" />
-          </div>
-          <div>
-            <v-card-text style="min-height: 75px">{{ item.name }}</v-card-text>
-            <div class="pl-4">
-              <p style="color: #03714d; font-weight: 600">EGP: {{ item.price }}</p>
-              <button
-                style="
-                  position: relative;
-                  width: 50%;
-                  border: 1px solid rgb(3, 113, 77);
-                  border-radius: 14px;
-                "
-              >
-                Add Item
-                <v-badge
-                  color="warning"
-                  content="1"
-                  style="position: absolute; right: 1%"
-                ></v-badge>
-              </button>
+          <RouterLink to="/informationProduct">
+            <div class="text-end"><v-icon color="#03714d">mdi-heart-outline</v-icon></div>
+            <div class="text-center">
+              <img :src="item.img" alt="" width="150" height="150" />
             </div>
-          </div>
+            <div>
+              <v-card-text style="min-height: 75px">{{ item.name }}</v-card-text>
+              <div class="pl-4">
+                <p style="color: #03714d; font-weight: 600">EGP: {{ item.price }}</p>
+                <button
+                  style="
+                    position: relative;
+                    width: 50%;
+                    border: 1px solid rgb(3, 113, 77);
+                    border-radius: 14px;
+                  "
+                >
+                  Add Item
+                  <v-badge
+                    color="warning"
+                    content="1"
+                    style="position: absolute; right: 1%"
+                  ></v-badge>
+                </button>
+              </div>
+            </div>
+          </RouterLink>
         </v-card>
       </v-row>
     </v-container>
