@@ -10,7 +10,7 @@ export default {
 <template>
   <div
     class="position-fixed right-0 h-screen top-0 pa-5"
-    style="background-color: aliceblue; width: 5% !important"
+    style="background-color: aliceblue; width: 5% !important; z-index: 1000"
   >
     <v-badge
       color="error"
