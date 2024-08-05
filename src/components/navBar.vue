@@ -2,7 +2,7 @@
 export default {
   data() {
     return {
-      overlay: true,
+      overlay: false,
       prod: [
         {
           id: 1,
@@ -84,14 +84,14 @@ export default {
           >
           <hr style="margin: 10px 0px" />
         </div>
-        <div v-for="n in prod" :key="n.id" class="d-flex justify-space-between border-b mb-5">
+        <div v-for="n in prod" :key="n.id" class="d-flex justify-space-between border-b mb-5 pb-2">
           <div>
             <div class="d-flex">
               <img :src="n.img" alt="" width="100" height="100" />
               <div>
                 <div>
                   <p>{{ n.name }}</p>
-                  <p>{{ n.price }} Egp</p>
+                  <p style="color: #03714d; font-weight: 600">EGP: {{ n.price }}</p>
                 </div>
                 <div
                   style="
@@ -104,7 +104,7 @@ export default {
                   <v-btn variant="text" size="x-small">
                     <v-icon size="18px" color="green" @click="n.count++">mdi-plus</v-icon>
                   </v-btn>
-                  <span class="border" style="padding: 8px 24px">{{ n.count }}</span>
+                  <span class="border" style="padding: 4px 24px">{{ n.count }}</span>
                   <v-btn variant="text" size="x-small">
                     <v-icon
                       size="18px"
