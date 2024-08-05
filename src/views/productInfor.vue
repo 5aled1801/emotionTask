@@ -87,7 +87,7 @@ export default {
         </p>
         <hr class="my-4" />
         <div class="d-flex">
-          <img src="../assets/logo.svg" width="20" alt="" />
+          <img src="../assets/logo.svg" style="max-width: 20px" alt="" />
           <p>Sold and delivered by Spinneys</p>
         </div>
         <hr class="my-4" />
