@@ -80,11 +80,11 @@ export default {
                     border-radius: 14px;
                   "
                 >
-                  Add Item
+                  Add to cart
                   <v-badge
-                    color="warning"
+                    color="rgb(251 206 0) "
                     content="1"
-                    style="position: absolute; right: 1%"
+                    style="position: absolute; right: 1%; color: green"
                   ></v-badge>
                 </button>
               </div>

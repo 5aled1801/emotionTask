@@ -50,7 +50,7 @@ export default {
 <template>
   <div
     class="position-fixed right-0 h-screen top-0 pa-5"
-    style="background-color: aliceblue; width: 5% !important; z-index: 1000"
+    style="background-color: gainsboro; width: 5% !important; z-index: 1000"
   >
     <v-badge
       color="error"
@@ -74,6 +74,8 @@ export default {
         </v-card-text>
         <div class="text-center">
           <v-btn
+            size="small"
+            class="h-auto py-2"
             style="
               color: white;
               width: 50%;
@@ -94,32 +96,33 @@ export default {
                   <p style="color: #03714d; font-weight: 600">EGP: {{ n.price }}</p>
                 </div>
                 <div
-                  style="
-                    border: 1px solid green;
-                    text-align: center;
-                    max-width: 190px;
-                    border-radius: 15px;
-                  "
+                  class="btn-actions pa-2 text-center"
+                  style="border: 1px solid green; max-width: 148px; border-radius: 15px"
                 >
-                  <v-btn variant="text" size="x-small">
-                    <v-icon size="18px" color="green" @click="n.count++">mdi-plus</v-icon>
-                  </v-btn>
-                  <span class="border" style="padding: 2px 24px; border-top: none">{{
-                    n.count
-                  }}</span>
                   <v-btn variant="text" size="x-small">
                     <v-icon
                       size="18px"
-                      color="green"
+                      color="black"
                       @click="
                         function decrementCount() {
                           if (n.count > 1) {
-                            n.count--
+                            {
+                              {
+                                n.count--
+                              }
+                            }
                           }
                         }
                       "
                       >mdi-minus</v-icon
                     >
+                  </v-btn>
+
+                  <span class="border" style="padding: 9px 24px; border-top: none">{{
+                    n.count
+                  }}</span>
+                  <v-btn variant="text" size="x-small" @click="n.count++">
+                    <v-icon size="18px" color="black">mdi-plus</v-icon>
                   </v-btn>
                 </div>
               </div>

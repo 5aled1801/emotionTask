@@ -19,37 +19,29 @@ export default {
       <div><img :src="prod.img" alt="" style="width: 40vw" /></div>
       <div>
         <h1 style="color: green">{{ prod.name }}</h1>
-        <p style="text-decoration: underline">code Cuts</p>
-        <h2 style="color: green">EGP{{ prod.price }}</h2>
-        <p style="font-weight: 700">Grocery Weight</p>
-        <select
-          name="weight"
-          id="weight"
-          style="border: 1px solid gray; border-radius: 5px; text-align: center"
-        >
-          <option value="750gm">750gm</option>
-          <option value="500gm">500gm</option>
-          <option value="1500gm">1500gm</option></select
-        ><Br />
+        <div class="my-4">
+          <span class="font-weight-medium mb-4">cold Cuts </span>
+          <hr style="width: 15%" />
+        </div>
+        <h2 class="my-6" style="color: green">EGP{{ prod.price }}</h2>
+        <p class="text-h6" style="font-weight: 700">Grocery Weight</p>
+        <v-select
+          variant="outlined"
+          style="text-align-last: center"
+          width="120"
+          value="750 gm"
+          :items="['500 gm', '1000 gm', '1500 gm']"
+        ></v-select>
         <p class="my-2">Quantity</p>
         <div class="d-flex ga-2">
           <div
-            class="btn-actions"
-            style="
-              border: 1px solid green;
-              text-align: center;
-              max-width: 190px;
-              border-radius: 15px;
-            "
+            class="btn-actions pa-2 text-center"
+            style="border: 1px solid green; max-width: 190px; border-radius: 15px"
           >
-            <v-btn variant="text" size="x-small">
-              <v-icon size="18px" color="green" @click="prod.count++">mdi-plus</v-icon>
-            </v-btn>
-            <span class="border" style="padding: 2px 24px; border-top: none">{{ prod.count }}</span>
             <v-btn variant="text" size="x-small">
               <v-icon
                 size="18px"
-                color="green"
+                color="black"
                 @click="
                   function decrementCount() {
                     if (prod.count > 1) {
@@ -64,35 +56,52 @@ export default {
                 >mdi-minus</v-icon
               >
             </v-btn>
+
+            <span class="border" style="padding: 9px 24px; border-top: none">{{ prod.count }}</span>
+            <v-btn variant="text" size="x-small" @click="prod.count++">
+              <v-icon size="18px" color="black">mdi-plus</v-icon>
+            </v-btn>
           </div>
-          <button
+          <v-btn
+            class="position-relative text-white h-auto"
+            size="small"
             style="
-              position: relative;
-              width: 50%;
-              border: 1px solid rgb(3, 113, 77);
-              border-radius: 14px;
-              color: white;
-              width: 50%;
+              width: 40%;
               background: linear-gradient(45deg, #0a6c4b, #8cb114);
               border-radius: 15px;
             "
+            density="comfortable"
             @click="prod.count++"
           >
-            Add Item
-            <v-badge color="warning" content="1" style="position: absolute; right: 1%"></v-badge>
-          </button>
+            Add to cart
+            <v-badge
+              content="1"
+              color="rgb(251 206 0) "
+              style="position: absolute; right: 1%; top: 0"
+            ></v-badge>
+          </v-btn>
         </div>
         <p class="mt-8">
-          <v-icon>mdi-clock</v-icon> <span style="font-weight: 700">Delivered Within :</span>The
-          Same Day
+          <v-icon>mdi-clock-outline</v-icon>
+          <span style="font-weight: 700">Delivered Within :</span>The Same Day
         </p>
-        <hr class="my-2" />
-        <p>Sold and delivered by Spinneys</p>
+        <hr class="my-4" />
+        <div class="d-flex">
+          <img src="../assets/logo.svg" width="20" alt="" />
+          <p>Sold and delivered by Spinneys</p>
+        </div>
+        <hr class="my-4" />
       </div>
     </v-container>
   </div>
 </template>
 <style>
+.v-field__field {
+  height: 40px;
+}
+.v-field__input {
+  padding: 7px;
+}
 @media (max-width: 600px) {
   .v-container {
     flex-direction: column !important;

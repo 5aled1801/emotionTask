@@ -38,7 +38,7 @@ export default {
           v-for="n in btnNames"
           :key="n.id"
           :variant="n.status ? 'elevated' : 'text'"
-          :color="n.status ? '#ff6100' : 'black'"
+          :color="n.status ? 'rgb(247 94 0)' : 'gray'"
           :style="{ color: n.status ? 'white' : 'black' }"
           style="font-size: 10px"
           @click="updateStatus(n.id)"
@@ -47,7 +47,7 @@ export default {
         </v-btn>
       </v-row>
 
-      <v-row>
+      <v-row class="text-black">
         <span> products</span>
         <v-btn variant="text" @click="stylerow = true" :color="stylerow ? '03714d' : 'black'"
           ><v-icon>mdi-table-row</v-icon></v-btn
