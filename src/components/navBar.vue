@@ -104,7 +104,9 @@ export default {
                   <v-btn variant="text" size="x-small">
                     <v-icon size="18px" color="green" @click="n.count++">mdi-plus</v-icon>
                   </v-btn>
-                  <span class="border" style="padding: 4px 24px">{{ n.count }}</span>
+                  <span class="border" style="padding: 2px 24px; border-top: none">{{
+                    n.count
+                  }}</span>
                   <v-btn variant="text" size="x-small">
                     <v-icon
                       size="18px"
