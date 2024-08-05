@@ -50,7 +50,7 @@ export default {
 <template>
   <div
     class="position-fixed right-0 h-screen top-0 pa-5"
-    style="background-color: gainsboro; width: 5% !important; z-index: 1000"
+    style="background-color: #eaeaea; width: 5% !important; z-index: 1000"
   >
     <v-badge
       color="error"
@@ -86,51 +86,50 @@ export default {
           >
           <hr style="margin: 10px 0px" />
         </div>
-        <div v-for="n in prod" :key="n.id" class="d-flex justify-space-between border-b mb-5 pb-2">
-          <div>
-            <div class="d-flex">
-              <img :src="n.img" alt="" width="100" height="100" />
+        <div v-for="n in prod" :key="n.id" class="d-flex flex-column border-b mb-5 pb-2">
+          <div class="d-flex">
+            <img :src="n.img" alt="" width="100" height="100" />
+            <div class="flex-grow-1 mr-4">
               <div>
-                <div>
-                  <p>{{ n.name }}</p>
-                  <p style="color: #03714d; font-weight: 600">EGP: {{ n.price }}</p>
-                </div>
-                <div
-                  class="btn-actions pa-2 text-center"
-                  style="border: 1px solid green; max-width: 148px; border-radius: 15px"
-                >
-                  <v-btn variant="text" size="x-small">
-                    <v-icon
-                      size="18px"
-                      color="black"
-                      @click="
-                        function decrementCount() {
-                          if (n.count > 1) {
+                <p>{{ n.name }}</p>
+                <p style="color: #03714d; font-weight: 600">EGP: {{ n.price }}</p>
+              </div>
+
+              <div
+                class="btn-actions pa-2 text-center"
+                style="border: 1px solid green; max-width: 133px; border-radius: 15px"
+              >
+                <v-btn variant="text" size="x-small">
+                  <v-icon
+                    size="18px"
+                    color="black"
+                    @click="
+                      function decrementCount() {
+                        if (n.count > 1) {
+                          {
                             {
-                              {
-                                n.count--
-                              }
+                              n.count--
                             }
                           }
                         }
-                      "
-                      >mdi-minus</v-icon
-                    >
-                  </v-btn>
+                      }
+                    "
+                    >mdi-minus</v-icon
+                  >
+                </v-btn>
 
-                  <span class="border" style="padding: 9px 24px; border-top: none">{{
-                    n.count
-                  }}</span>
-                  <v-btn variant="text" size="x-small" @click="n.count++">
-                    <v-icon size="18px" color="black">mdi-plus</v-icon>
-                  </v-btn>
-                </div>
+                <span class="border" style="padding: 9px 12px; border-top: none">{{
+                  n.count
+                }}</span>
+                <v-btn variant="text" size="x-small" @click="n.count++">
+                  <v-icon size="18px" color="black">mdi-plus</v-icon>
+                </v-btn>
+              </div>
+              <div class="d-flex justify-end my-2">
+                <v-btn color="error" size="x-small" variant="text">Remove</v-btn>
+                <v-btn color="success" size="x-small" variant="text"> Move to wishlist</v-btn>
               </div>
             </div>
-          </div>
-          <div class="d-flex" style="align-self: self-end">
-            <v-btn color="error" size="x-small" variant="text">Remove</v-btn>
-            <v-btn color="success" size="x-small" variant="text"> Move to wishlist</v-btn>
           </div>
         </div>
       </v-card>

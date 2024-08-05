@@ -71,7 +71,7 @@ export default {
             <div>
               <v-card-text style="min-height: 75px">{{ item.name }}</v-card-text>
               <div class="pl-4">
-                <p style="color: #03714d; font-weight: 600">EGP: {{ item.price }}</p>
+                <p class="font-weight-bold py-2" style="color: #03714d">EGP: {{ item.price }}</p>
                 <button
                   style="
                     position: relative;
