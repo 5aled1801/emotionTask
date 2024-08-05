@@ -2,7 +2,47 @@
 export default {
   data() {
     return {
-      overlay: true
+      overlay: true,
+      prod: [
+        {
+          id: 1,
+          name: 'Spinneys Value Sponge For Glass Cookware',
+          price: 3.95,
+          img: 'https://mcprod.spinneys-egypt.com/media/catalog/product/cache/36b410f085b47d6b5accd0d7fc6177ea/3/2/328465.jpg?format=webp',
+          count: 1
+        },
+        {
+          id: 2,
+          name: 'Spinneys Black Eyed peas, 500Gm',
+          price: 14.25,
+          img: 'https://mcprod.spinneys-egypt.com/media/catalog/product/cache/36b410f085b47d6b5accd0d7fc6177ea/3/5/356385.jpg?format=webp',
+          count: 1
+        },
+        {
+          id: 3,
+          name: 'Abu Auf - Cinnamon Sticks - 1Kg',
+          price: 34.95,
+          img: 'https://mcprod.spinneys-egypt.com/media/catalog/product/cache/36b410f085b47d6b5accd0d7fc6177ea/3/5/359090.jpg?format=webp',
+          count: 1
+        },
+        {
+          id: 4,
+          name: 'Spinneys Value Scouring Sponge Grooved- 3Pcs ',
+          price: 75.95,
+          img: 'https://mcprod.spinneys-egypt.com/media/catalog/product/cache/36b410f085b47d6b5accd0d7fc6177ea/3/2/328464.jpg?format=webp',
+          count: 1
+        }
+      ]
+    }
+  },
+  methods: {
+    incrementCount(button) {
+      button.count++
+    },
+    decrementCount(button) {
+      if (button.count > 1) {
+        button.count--
+      }
     }
   }
 }
@@ -23,9 +63,80 @@ export default {
     </v-badge>
 
     <v-overlay v-model="overlay">
-      <v-card style="width: 250px; height: 100vh; right: 0; position: absolute">
-        <v-card-text> khalec </v-card-text>
+      <v-card class="fixed-card" style="width: 50vw; height: 100vh; position: relative; left: 100%">
+        <v-btn variant="text" @click="overlay = false" class="my-2">
+          <v-icon>mdi-close</v-icon>
+        </v-btn>
+        <hr />
+        <v-card-text class="d-flex justify-space-between ma-4">
+          <span>Subtotal</span>
+          <span>697.29 Egp</span>
+        </v-card-text>
+        <div class="text-center">
+          <v-btn
+            style="
+              color: white;
+              width: 50%;
+              background: linear-gradient(45deg, #0a6c4b, #8cb114);
+              border-radius: 15px;
+            "
+            >Checkout</v-btn
+          >
+          <hr style="margin: 10px 0px" />
+        </div>
+        <div v-for="n in prod" :key="n.id" class="d-flex justify-space-between border-b mb-5">
+          <div>
+            <div class="d-flex">
+              <img :src="n.img" alt="" width="100" height="100" />
+              <div>
+                <div>
+                  <p>{{ n.name }}</p>
+                  <p>{{ n.price }} Egp</p>
+                </div>
+                <div
+                  style="
+                    border: 1px solid green;
+                    text-align: center;
+                    max-width: 190px;
+                    border-radius: 15px;
+                  "
+                >
+                  <v-btn variant="text" size="x-small">
+                    <v-icon size="18px" color="green" @click="n.count++">mdi-plus</v-icon>
+                  </v-btn>
+                  <span class="border" style="padding: 8px 24px">{{ n.count }}</span>
+                  <v-btn variant="text" size="x-small">
+                    <v-icon
+                      size="18px"
+                      color="green"
+                      @click="
+                        function decrementCount() {
+                          if (n.count > 1) {
+                            n.count--
+                          }
+                        }
+                      "
+                      >mdi-minus</v-icon
+                    >
+                  </v-btn>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-flex" style="align-self: self-end">
+            <v-btn color="error" size="x-small" variant="text">Remove</v-btn>
+            <v-btn color="success" size="x-small" variant="text"> Move to wishlist</v-btn>
+          </div>
+        </div>
       </v-card>
     </v-overlay>
   </div>
 </template>
+<style>
+@media (max-width: 600px) {
+  .fixed-card {
+    width: 100vw !important;
+    left: 0 !important;
+  }
+}
+</style>
